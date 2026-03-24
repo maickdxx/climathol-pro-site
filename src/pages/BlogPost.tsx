@@ -8,18 +8,14 @@ import { Calendar, Clock, ArrowLeft, Share2 } from "lucide-react";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 
-import blogLimpeza from "@/assets/blog-limpeza.jpg";
-import blogGelando from "@/assets/blog-gelando.jpg";
-import blogPmoc from "@/assets/blog-pmoc.jpg";
-import blogInstalacao from "@/assets/blog-instalacao.jpg";
-
 const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de solicitar um orçamento.";
 
 const imageMap: Record<string, string> = {
-  "blog-limpeza": blogLimpeza,
-  "blog-gelando": blogGelando,
-  "blog-pmoc": blogPmoc,
-  "blog-instalacao": blogInstalacao,
+  "blog-limpeza": "https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80",
+  "blog-gelando": "https://images.unsplash.com/photo-1631545806609-65e2de939aba?w=800&q=80",
+  "blog-pmoc": "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80",
+  "blog-instalacao": "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=800&q=80",
+};
 };
 
 function WhatsAppIcon({ size = 20 }: { size?: number }) {
