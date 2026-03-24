@@ -1,18 +1,20 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 import heroImg from "@/assets/work-1.jpg";
 import diffImg1 from "@/assets/work-4.jpg";
 import diffImg2 from "@/assets/work-5.jpg";
 import whyImg from "@/assets/work-2.jpg";
+import { motion } from "framer-motion";
 import {
   Wrench, Thermometer, Wind, Sparkles, Fuel, ShieldCheck,
   Clock, Settings, MapPin, Award, Phone,
   Users, DollarSign, Heart, CalendarCheck, FileText, Zap,
-  CheckCircle2
+  CheckCircle2, ArrowRight
 } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de solicitar um orçamento.";
+const WHATSAPP_URL = "https://wa.me/5561994175078?text=Olá! Gostaria de solicitar um orçamento.";
 
 const serviceTags = [
   { icon: Wrench, label: "Instalação" },
@@ -24,27 +26,27 @@ const serviceTags = [
 ];
 
 const solutions = [
-  { icon: Wrench, title: "Instalação", desc: "Instalação profissional de splits, multi-splits e sistemas centrais, com dimensionamento técnico e garantia." },
-  { icon: Settings, title: "Manutenção", desc: "Manutenção preventiva e corretiva para máximo desempenho e vida útil prolongada do equipamento." },
-  { icon: Fuel, title: "Recarga de Gás", desc: "Recarga de gás refrigerante com detecção de vazamentos e testes completos de pressão." },
-  { icon: Wind, title: "Limpeza", desc: "Limpeza completa das unidades interna e externa, devolvendo eficiência e ar puro." },
-  { icon: Sparkles, title: "Higienização", desc: "Higienização profunda com produtos bactericidas, eliminando fungos, ácaros e bactérias." },
-  { icon: ShieldCheck, title: "PMOC", desc: "Plano de Manutenção, Operação e Controle conforme normas vigentes para ambientes comerciais." },
+  { icon: Wrench, title: "Instalação", desc: "Instalação profissional de splits, multi-splits e sistemas centrais com dimensionamento técnico." },
+  { icon: Settings, title: "Manutenção", desc: "Preventiva e corretiva para máximo desempenho e vida útil prolongada do equipamento." },
+  { icon: Fuel, title: "Recarga de Gás", desc: "Recarga com detecção de vazamentos e testes completos de pressão." },
+  { icon: Wind, title: "Limpeza", desc: "Limpeza completa das unidades interna e externa, devolvendo eficiência." },
+  { icon: Sparkles, title: "Higienização", desc: "Higienização profunda com produtos bactericidas contra fungos e bactérias." },
+  { icon: ShieldCheck, title: "PMOC", desc: "Plano de Manutenção conforme normas vigentes. Obrigatório para ambientes comerciais." },
 ];
 
 const diferenciais = [
-  { icon: Users, title: "Atendimento Consultivo", desc: "Analisamos o ambiente e indicamos a melhor solução." },
-  { icon: Clock, title: "Agilidade", desc: "Rapidez no atendimento e cumprimento dos prazos." },
-  { icon: Award, title: "Equipe Especializada", desc: "Profissionais capacitados e com experiência." },
-  { icon: ShieldCheck, title: "Qualidade e Garantia", desc: "Materiais de primeira linha e garantia total." },
-  { icon: FileText, title: "Conformidade", desc: "Seguimos todas as normas técnicas e de segurança." },
-  { icon: DollarSign, title: "Transparência", desc: "Orçamentos claros e detalhados, sem surpresas." },
-  { icon: Heart, title: "Saúde e Ar Limpo", desc: "Priorizamos a qualidade do ar e bem-estar." },
-  { icon: CalendarCheck, title: "Atendimento Amplo", desc: "Residências, empresas, escritórios e condomínios." },
+  { icon: Users, title: "Atendimento Consultivo", desc: "Analisamos e indicamos a melhor solução." },
+  { icon: Clock, title: "Agilidade", desc: "Rapidez e cumprimento rigoroso dos prazos." },
+  { icon: Award, title: "Equipe Especializada", desc: "Profissionais capacitados e experientes." },
+  { icon: ShieldCheck, title: "Qualidade e Garantia", desc: "Materiais de primeira e garantia total." },
+  { icon: FileText, title: "Conformidade", desc: "Todas as normas técnicas e PMOC." },
+  { icon: DollarSign, title: "Transparência", desc: "Orçamentos claros, sem surpresas." },
+  { icon: Heart, title: "Saúde e Ar Limpo", desc: "Priorizamos qualidade do ar e bem-estar." },
+  { icon: CalendarCheck, title: "Atendimento Amplo", desc: "Residências, empresas e condomínios." },
 ];
 
 const whyItems = [
-  "Equipe técnica qualificada com responsável técnico registrado",
+  "Equipe técnica com responsável técnico registrado",
   "Atendimento personalizado para cada ambiente",
   "Serviços completos: da instalação ao PMOC",
   "Compromisso com prazos e qualidade",
@@ -58,264 +60,335 @@ const areas = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#060F1F]">
+    <div className="min-h-screen bg-[#060B18]">
       <Header />
       <WhatsAppFloat />
 
-      {/* HERO */}
-      <section className="relative pt-20 min-h-[85vh] sm:min-h-screen flex items-center overflow-hidden">
+      {/* ══════════ HERO ══════════ */}
+      <section className="relative pt-16 sm:pt-20 min-h-[90vh] sm:min-h-screen flex items-center overflow-hidden">
+        {/* BG image */}
         <div className="absolute inset-0">
-          <img src={heroImg} alt="" className="w-full h-full object-cover opacity-25" width={1920} height={1080} />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#060F1F] via-[#060F1F]/90 to-[#060F1F]/40" />
+          <img src={heroImg} alt="" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#060B18] via-[#060B18]/95 to-[#060B18]/50" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#060B18] via-transparent to-transparent" />
         </div>
-        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-24 lg:py-32">
-          <div className="inline-flex items-center gap-2 bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-xs sm:text-sm text-white/80 mb-6 sm:mb-8">
-            <Wind size={14} className="text-[#4FC3F7]" />
-            Especialistas em Climatização no DF
-          </div>
-          <h1 className="text-3xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-5 sm:mb-7 tracking-tight">
-            Climathol<br />
-            <span className="text-[#4FC3F7]">Ar Condicionado</span>
-          </h1>
-          <p className="text-base sm:text-lg text-white/60 max-w-xl mb-8 sm:mb-10 leading-relaxed">
-            Conforto térmico, eficiência e qualidade do ar para sua casa ou empresa.
-            Instalação, manutenção e PMOC com equipe técnica em Brasília e todo o DF.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10 sm:mb-14">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#25D366]/25 hover:scale-[1.03] hover:brightness-110 transition-all duration-200"
-            >
-              <WhatsAppIcon size={18} />
-              Solicitar Orçamento
-            </a>
-            <a
-              href="#servicos"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-white/[0.07] border border-white/15 text-white font-semibold text-sm sm:text-base hover:bg-white/[0.12] transition-all duration-200"
-            >
-              Ver Serviços
-            </a>
-          </div>
-          <div className="flex flex-wrap gap-2 sm:gap-3">
-            {serviceTags.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-1.5 bg-white/[0.05] border border-white/[0.08] rounded-full px-3 sm:px-4 py-2 text-xs sm:text-sm text-white/70">
-                <Icon size={13} className="text-[#4FC3F7]" />
-                {label}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+        {/* Decorative glow */}
+        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] bg-[#4FC3F7]/[0.05] rounded-full blur-[120px]" />
 
-      {/* SERVIÇOS */}
-      <section id="servicos" className="bg-white py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.15em] mb-3">NOSSOS SERVIÇOS</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091A34] tracking-tight">
-              Soluções Completas em <span className="text-[#4FC3F7]">Climatização</span>
-            </h2>
-            <p className="text-[#091A34]/50 mt-3 sm:mt-4 max-w-xl mx-auto text-sm sm:text-base">
-              Do diagnóstico à execução, oferecemos serviços técnicos com qualidade, agilidade e garantia.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
-            {solutions.map((s) => (
-              <div key={s.title} className="group bg-white border border-gray-100 rounded-2xl p-6 sm:p-7 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl bg-[#091A34] flex items-center justify-center mb-5">
-                  <s.icon size={22} className="text-[#4FC3F7]" />
-                </div>
-                <h3 className="text-lg font-bold text-[#091A34] mb-2">{s.title}</h3>
-                <p className="text-[#091A34]/50 text-sm leading-relaxed mb-5">{s.desc}</p>
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#4FC3F7] text-white font-semibold text-xs sm:text-sm hover:brightness-110 transition-all duration-200"
-                >
-                  <WhatsAppIcon size={14} />
-                  Pedir Orçamento
-                </a>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* DIFERENCIAIS */}
-      <section className="bg-[#091A34] py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="text-center mb-12 sm:mb-16">
-            <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.15em] mb-3">POR QUE SOMOS DIFERENTES</span>
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">Nossos Diferenciais</h2>
-            <p className="text-white/50 mt-3 sm:mt-4 max-w-xl mx-auto text-sm sm:text-base">
-              Não vendemos apenas serviço — entregamos soluções completas em climatização.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-10 sm:mb-12">
-            <div className="rounded-2xl overflow-hidden">
-              <img src={diffImg1} alt="Técnico Climathol realizando manutenção" className="w-full h-48 sm:h-64 lg:h-72 object-cover" loading="lazy" width={800} height={600} />
+        <div className="relative w-full max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 py-20 sm:py-28 lg:py-36">
+          <FadeIn delay={0.1}>
+            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs sm:text-sm text-white/70 mb-8">
+              <Wind size={14} className="text-[#4FC3F7]" />
+              Especialistas em Climatização no DF
             </div>
-            <div className="rounded-2xl overflow-hidden">
-              <img src={diffImg2} alt="Limpeza profissional de ar condicionado" className="w-full h-48 sm:h-64 lg:h-72 object-cover" loading="lazy" width={800} height={600} />
-            </div>
-          </div>
+          </FadeIn>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-            {diferenciais.map((d) => (
-              <div key={d.title} className="bg-white/[0.04] border border-white/[0.08] rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#4FC3F7]/30 transition-all duration-300">
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-lg bg-[#4FC3F7]/10 flex items-center justify-center mb-3 sm:mb-4">
-                  <d.icon size={18} className="text-[#4FC3F7]" />
-                </div>
-                <h3 className="text-sm sm:text-base font-bold text-white mb-1.5">{d.title}</h3>
-                <p className="text-white/45 text-xs sm:text-sm leading-relaxed">{d.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+          <FadeIn delay={0.2}>
+            <h1 className="text-4xl sm:text-6xl lg:text-[5.5rem] font-black text-white leading-[1.05] mb-6 tracking-tight">
+              Climathol<br />
+              <span className="text-gradient">Ar Condicionado</span>
+            </h1>
+          </FadeIn>
 
-      {/* POR QUE A CLIMATHOL */}
-      <section className="bg-[#F0F4F8] py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <div>
-              <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.15em] mb-3">POR QUE A CLIMATHOL</span>
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091A34] leading-tight mb-5 sm:mb-6 tracking-tight">
-                Mais que manutenção, entregamos{" "}
-                <span className="text-[#4FC3F7]">conforto e segurança</span>{" "}
-                para o seu ambiente.
-              </h2>
-              <p className="text-[#091A34]/50 mb-6 sm:mb-8 leading-relaxed text-sm sm:text-base">
-                Escolher a Climathol é optar por tranquilidade. Nossa equipe garante que cada serviço seja executado com excelência.
-              </p>
-              <ul className="space-y-3 sm:space-y-4 mb-8 sm:mb-10">
-                {whyItems.map((item) => (
-                  <li key={item} className="flex items-start gap-3">
-                    <CheckCircle2 size={20} className="text-[#25D366] flex-shrink-0 mt-0.5" />
-                    <span className="text-[#091A34] font-medium text-sm sm:text-[15px]">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <a
+          <FadeIn delay={0.35}>
+            <p className="text-base sm:text-lg text-white/50 max-w-lg mb-10 leading-relaxed">
+              Conforto térmico, eficiência e qualidade do ar para sua casa ou empresa.
+              Instalação, manutenção e PMOC com equipe técnica em Brasília e todo o DF.
+            </p>
+          </FadeIn>
+
+          <FadeIn delay={0.45}>
+            <div className="flex flex-col sm:flex-row gap-3 mb-14">
+              <motion.a
                 href={WHATSAPP_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-7 py-3.5 sm:px-8 sm:py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base shadow-lg shadow-[#25D366]/25 hover:scale-[1.03] hover:brightness-110 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base glow-green hover:brightness-110 transition-all duration-200"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
               >
                 <WhatsAppIcon size={18} />
                 Solicitar Orçamento
+              </motion.a>
+              <a
+                href="#servicos"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl glass text-white font-semibold text-sm sm:text-base hover:bg-white/[0.08] transition-all duration-200"
+              >
+                Ver Serviços
+                <ArrowRight size={16} />
               </a>
             </div>
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-xl">
-                <img src={whyImg} alt="Técnico Climathol trabalhando" className="w-full h-auto object-cover" loading="lazy" width={800} height={900} />
-              </div>
-              <div className="hidden sm:block absolute top-6 right-6 bg-white rounded-xl shadow-lg px-5 py-3 text-center">
-                <span className="text-2xl font-extrabold text-[#091A34] block">1000+</span>
-                <span className="text-xs text-[#091A34]/50">Clientes atendidos</span>
-              </div>
-              <div className="hidden sm:block absolute bottom-6 left-6 bg-white rounded-xl shadow-lg px-5 py-3 text-center">
-                <span className="text-2xl font-extrabold text-[#091A34] block">+10</span>
-                <span className="text-xs text-[#091A34]/50">anos de experiência</span>
-              </div>
+          </FadeIn>
+
+          <FadeIn delay={0.55}>
+            <div className="flex flex-wrap gap-2">
+              {serviceTags.map(({ icon: Icon, label }) => (
+                <div key={label} className="flex items-center gap-1.5 bg-white/[0.03] border border-white/[0.06] rounded-full px-3.5 py-2 text-xs text-white/50">
+                  <Icon size={12} className="text-[#4FC3F7]" />
+                  {label}
+                </div>
+              ))}
             </div>
-          </div>
+          </FadeIn>
         </div>
       </section>
 
-      {/* ÁREAS ATENDIDAS */}
-      <section className="bg-white py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12 text-center">
-          <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.15em] mb-3">ÁREAS ATENDIDAS</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091A34] mb-4 tracking-tight">
-            Cobertura em <span className="text-[#4FC3F7]">Todo o DF</span>
-          </h2>
-          <p className="text-[#091A34]/50 max-w-lg mx-auto mb-10 text-sm sm:text-base">
-            Atendemos com rapidez e eficiência em todas as regiões do Distrito Federal.
-          </p>
-          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3">
-            {areas.map((area) => (
-              <div key={area} className="flex items-center gap-2 border border-gray-200 rounded-full px-4 sm:px-5 py-2.5 text-[#091A34] font-medium text-xs sm:text-sm hover:border-[#4FC3F7]/40 transition-colors">
-                <MapPin size={14} className="text-[#4FC3F7]" />
-                {area}
-              </div>
+      {/* ══════════ SERVIÇOS ══════════ */}
+      <section id="servicos" className="relative bg-white py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <FadeIn>
+            <div className="text-center mb-14 sm:mb-18">
+              <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.2em] mb-3">NOSSOS SERVIÇOS</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#060B18] tracking-tight">
+                Soluções Completas em <span className="text-[#4FC3F7]">Climatização</span>
+              </h2>
+              <p className="text-[#060B18]/40 mt-4 max-w-lg mx-auto text-sm sm:text-base">
+                Do diagnóstico à execução, serviços técnicos com qualidade e garantia.
+              </p>
+            </div>
+          </FadeIn>
+
+          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {solutions.map((s) => (
+              <StaggerItem key={s.title}>
+                <div className="group bg-white border border-gray-100 rounded-2xl p-7 hover:shadow-xl hover:shadow-[#4FC3F7]/[0.05] hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-12 h-12 rounded-xl bg-[#060B18] flex items-center justify-center mb-5 group-hover:bg-[#4FC3F7] transition-colors duration-300">
+                    <s.icon size={22} className="text-[#4FC3F7] group-hover:text-[#060B18] transition-colors duration-300" />
+                  </div>
+                  <h3 className="text-lg font-bold text-[#060B18] mb-2">{s.title}</h3>
+                  <p className="text-[#060B18]/40 text-sm leading-relaxed mb-5">{s.desc}</p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 text-[#4FC3F7] font-semibold text-sm hover:gap-3 transition-all duration-200"
+                  >
+                    Pedir Orçamento
+                    <ArrowRight size={14} />
+                  </a>
+                </div>
+              </StaggerItem>
             ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ══════════ DIFERENCIAIS ══════════ */}
+      <section className="bg-[#060B18] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <FadeIn>
+            <div className="text-center mb-14 sm:mb-18">
+              <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.2em] mb-3">POR QUE SOMOS DIFERENTES</span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">Nossos Diferenciais</h2>
+            </div>
+          </FadeIn>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-12">
+            <FadeIn direction="left">
+              <div className="rounded-2xl overflow-hidden relative group">
+                <img src={diffImg1} alt="Técnico Climathol" className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060B18]/70 to-transparent" />
+              </div>
+            </FadeIn>
+            <FadeIn direction="right">
+              <div className="rounded-2xl overflow-hidden relative group">
+                <img src={diffImg2} alt="Limpeza profissional" className="w-full h-52 sm:h-64 object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#060B18]/70 to-transparent" />
+              </div>
+            </FadeIn>
+          </div>
+
+          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+            {diferenciais.map((d) => (
+              <StaggerItem key={d.title}>
+                <div className="glass rounded-xl p-5 sm:p-6 hover:border-[#4FC3F7]/20 transition-all duration-300 h-full">
+                  <d.icon size={20} className="text-[#4FC3F7] mb-3" />
+                  <h3 className="text-sm sm:text-base font-bold text-white mb-1">{d.title}</h3>
+                  <p className="text-white/35 text-xs leading-relaxed">{d.desc}</p>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ══════════ POR QUE ══════════ */}
+      <section className="bg-[#0A1628] py-20 sm:py-28">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+            <div>
+              <FadeIn>
+                <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.2em] mb-3">POR QUE A CLIMATHOL</span>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight mb-6 tracking-tight">
+                  Mais que manutenção, entregamos{" "}
+                  <span className="text-gradient">conforto, segurança e desempenho</span>{" "}
+                  para o seu ambiente.
+                </h2>
+                <p className="text-white/40 mb-8 text-sm sm:text-base leading-relaxed">
+                  Escolher a Climathol é optar por tranquilidade. Cada serviço é executado com excelência.
+                </p>
+              </FadeIn>
+              <StaggerContainer className="space-y-3 mb-10">
+                {whyItems.map((item) => (
+                  <StaggerItem key={item}>
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 size={18} className="text-[#25D366] flex-shrink-0 mt-0.5" />
+                      <span className="text-white/70 text-sm">{item}</span>
+                    </div>
+                  </StaggerItem>
+                ))}
+              </StaggerContainer>
+              <FadeIn delay={0.3}>
+                <motion.a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-sm sm:text-base glow-green hover:brightness-110 transition-all duration-200"
+                  whileHover={{ scale: 1.03 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <WhatsAppIcon size={18} />
+                  Solicitar Orçamento
+                </motion.a>
+              </FadeIn>
+            </div>
+            <FadeIn direction="right" delay={0.2}>
+              <div className="relative">
+                <div className="rounded-2xl overflow-hidden">
+                  <img src={whyImg} alt="Técnico Climathol" className="w-full h-auto object-cover" loading="lazy" />
+                </div>
+                <div className="hidden sm:flex absolute top-6 right-6 glass rounded-xl px-5 py-3 items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#4FC3F7]/20 flex items-center justify-center">
+                    <Users size={18} className="text-[#4FC3F7]" />
+                  </div>
+                  <div>
+                    <span className="text-xl font-extrabold text-white block">1000+</span>
+                    <span className="text-[10px] text-white/40 uppercase tracking-wider">Clientes</span>
+                  </div>
+                </div>
+                <div className="hidden sm:flex absolute bottom-6 left-6 glass rounded-xl px-5 py-3 items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-[#25D366]/20 flex items-center justify-center">
+                    <Award size={18} className="text-[#25D366]" />
+                  </div>
+                  <div>
+                    <span className="text-xl font-extrabold text-white block">+10</span>
+                    <span className="text-[10px] text-white/40 uppercase tracking-wider">Anos</span>
+                  </div>
+                </div>
+              </div>
+            </FadeIn>
           </div>
         </div>
       </section>
 
-      {/* AUTORIDADE TÉCNICA */}
-      <section className="bg-[#F0F4F8] py-16 sm:py-24">
+      {/* ══════════ ÁREAS ══════════ */}
+      <section className="bg-white py-20 sm:py-28">
+        <div className="max-w-5xl mx-auto px-5 sm:px-8 text-center">
+          <FadeIn>
+            <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.2em] mb-3">ÁREAS ATENDIDAS</span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#060B18] mb-4 tracking-tight">
+              Cobertura em <span className="text-[#4FC3F7]">Todo o DF</span>
+            </h2>
+            <p className="text-[#060B18]/40 max-w-md mx-auto mb-10 text-sm sm:text-base">
+              Atendemos com rapidez e eficiência em todas as regiões.
+            </p>
+          </FadeIn>
+          <StaggerContainer className="flex flex-wrap justify-center gap-2.5">
+            {areas.map((area) => (
+              <StaggerItem key={area}>
+                <div className="flex items-center gap-2 border border-gray-200 rounded-full px-4 py-2.5 text-[#060B18] font-medium text-xs sm:text-sm hover:border-[#4FC3F7] hover:text-[#4FC3F7] transition-colors cursor-default">
+                  <MapPin size={13} className="text-[#4FC3F7]" />
+                  {area}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </div>
+      </section>
+
+      {/* ══════════ AUTORIDADE ══════════ */}
+      <section className="bg-[#0A1628] py-20 sm:py-28">
         <div className="max-w-3xl mx-auto px-5 sm:px-8 text-center">
-          <div className="w-16 h-16 sm:w-18 sm:h-18 rounded-2xl bg-[#091A34] flex items-center justify-center mx-auto mb-6">
-            <Award size={30} className="text-[#4FC3F7]" />
-          </div>
-          <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.15em] mb-3">AUTORIDADE TÉCNICA</span>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#091A34] mb-8 tracking-tight">
-            Responsabilidade e Conformidade Técnica
-          </h2>
-          <div className="bg-white rounded-2xl shadow-sm p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 mb-6 sm:mb-8">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#091A34]/10 flex items-center justify-center">
-                <ShieldCheck size={22} className="text-[#091A34]" />
+          <FadeIn>
+            <div className="w-16 h-16 rounded-2xl bg-[#4FC3F7]/10 flex items-center justify-center mx-auto mb-6">
+              <Award size={28} className="text-[#4FC3F7]" />
+            </div>
+            <span className="inline-block text-[#4FC3F7] text-xs font-bold uppercase tracking-[0.2em] mb-3">AUTORIDADE TÉCNICA</span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mb-8 tracking-tight">
+              Responsabilidade Técnica
+            </h2>
+          </FadeIn>
+          <FadeIn delay={0.15}>
+            <div className="glass rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-center gap-8 mb-6">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-full bg-[#4FC3F7]/10 flex items-center justify-center">
+                  <ShieldCheck size={20} className="text-[#4FC3F7]" />
+                </div>
+                <div className="text-left">
+                  <span className="text-[10px] text-white/40 uppercase tracking-wider">Responsável Técnico</span>
+                  <p className="font-bold text-white text-sm">Cristóvão Borges</p>
+                </div>
               </div>
-              <div className="text-left">
-                <span className="text-xs text-[#091A34]/50">Responsável Técnico</span>
-                <p className="font-bold text-[#091A34]">Cristóvão Borges</p>
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+                  <CheckCircle2 size={20} className="text-[#25D366]" />
+                </div>
+                <div className="text-left">
+                  <span className="text-[10px] text-white/40 uppercase tracking-wider">Registro</span>
+                  <p className="font-bold text-white text-sm">CFT Ativo</p>
+                </div>
               </div>
             </div>
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-[#25D366]/10 flex items-center justify-center">
-                <CheckCircle2 size={22} className="text-[#25D366]" />
-              </div>
-              <div className="text-left">
-                <span className="text-xs text-[#091A34]/50">Registro Profissional</span>
-                <p className="font-bold text-[#091A34]">CFT Ativo</p>
-              </div>
-            </div>
-          </div>
-          <p className="text-[#091A34]/50 max-w-xl mx-auto leading-relaxed text-sm sm:text-base">
-            Nossa empresa opera com responsável técnico registrado, garantindo segurança e conformidade com normas.
-          </p>
+          </FadeIn>
+          <FadeIn delay={0.25}>
+            <p className="text-white/40 max-w-lg mx-auto text-sm leading-relaxed">
+              Operamos com responsável técnico registrado, garantindo segurança e conformidade com normas para empresas e condomínios.
+            </p>
+          </FadeIn>
         </div>
       </section>
 
-      {/* CTA FINAL */}
-      <section className="bg-gradient-to-b from-[#091A34] to-[#0D2447] py-16 sm:py-24">
-        <div className="max-w-2xl mx-auto px-5 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/[0.07] backdrop-blur-md border border-white/10 rounded-full px-4 py-2 text-xs sm:text-sm text-white/80 mb-6 sm:mb-8">
-            <Zap size={14} className="text-[#4FC3F7]" />
-            Atendimento Rápido e Eficiente
-          </div>
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-5 sm:mb-6 leading-tight tracking-tight">
-            Precisa de Ar-Condicionado?<br />
-            <span className="text-[#4FC3F7]">Fale Conosco Agora!</span>
-          </h2>
-          <p className="text-white/50 text-sm sm:text-base mb-8 sm:mb-10 max-w-lg mx-auto">
-            Solicite seu orçamento sem compromisso. Respondemos rapidamente pelo WhatsApp.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-base shadow-xl shadow-[#25D366]/25 hover:scale-[1.03] hover:brightness-110 transition-all duration-200"
-            >
-              <WhatsAppIcon size={22} />
-              Chamar no WhatsApp
-            </a>
-            <a
-              href="tel:+556193021232"
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-white/[0.07] border border-white/15 text-white font-bold text-base hover:bg-white/[0.12] transition-all duration-200"
-            >
-              <Phone size={20} />
-              (61) 93021-232
-            </a>
-          </div>
+      {/* ══════════ CTA ══════════ */}
+      <section className="relative bg-[#060B18] py-20 sm:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#4FC3F7]/[0.03] to-transparent" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#4FC3F7]/[0.04] rounded-full blur-[150px]" />
+        
+        <div className="relative max-w-2xl mx-auto px-5 text-center">
+          <FadeIn>
+            <div className="inline-flex items-center gap-2 glass rounded-full px-4 py-2 text-xs text-white/60 mb-8">
+              <Zap size={13} className="text-[#4FC3F7]" />
+              Atendimento Rápido
+            </div>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white mb-5 leading-tight tracking-tight">
+              Precisa de Ar-Condicionado?<br />
+              <span className="text-gradient">Fale Conosco Agora!</span>
+            </h2>
+            <p className="text-white/40 text-sm sm:text-base mb-10 max-w-md mx-auto">
+              Solicite seu orçamento sem compromisso. Respondemos rapidamente pelo WhatsApp.
+            </p>
+          </FadeIn>
+          <FadeIn delay={0.2}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+              <motion.a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl bg-[#25D366] text-white font-bold text-base glow-green hover:brightness-110 transition-all duration-200"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <WhatsAppIcon size={20} />
+                Chamar no WhatsApp
+              </motion.a>
+              <a
+                href="tel:+5561994175078"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass text-white font-bold text-base hover:bg-white/[0.08] transition-all duration-200"
+              >
+                <Phone size={18} />
+                (61) 99417-5078
+              </a>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
