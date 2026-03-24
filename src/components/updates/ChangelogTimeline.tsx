@@ -1,13 +1,14 @@
 export type ChangeType = "feature" | "fix" | "improvement" | "update";
 
-export interface ChangelogEntry {
-  id: string;
-  date: string;
-  title: string;
+export interface ChangelogChange {
+  type: string;
   description: string;
-  type: ChangeType;
-  version?: string;
-  changes?: Array<{ type: string; description: string } | string>;
+}
+
+export interface ChangelogEntry {
+  version: string;
+  date: string;
+  changes: ChangelogChange[];
   [key: string]: any;
 }
 
