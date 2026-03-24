@@ -12,7 +12,7 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561993676477?text=Olá! Gostaria de solicitar um orçamento.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de solicitar um orçamento.";
 
 const serviceTags = [
   { icon: Wrench, label: "Instalação" },
@@ -310,11 +310,11 @@ export default function Home() {
               Chamar no WhatsApp
             </a>
             <a
-              href="tel:+5561993676477"
+              href="tel:+556193021232"
               className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-white/[0.07] border border-white/15 text-white font-bold text-lg hover:bg-white/[0.12] transition-all duration-200"
             >
               <Phone size={24} />
-              (61) 99367-6477
+              (61) 93021-232
             </a>
           </div>
         </div>
