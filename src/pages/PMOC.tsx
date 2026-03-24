@@ -5,7 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 import { motion } from "framer-motion";
 import { ShieldCheck, FileCheck, Building2, Stethoscope, GraduationCap, Store, AlertTriangle, ClipboardCheck, Search, Wrench, HeadphonesIcon, Clock } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561994175078?text=Olá! Gostaria de informações sobre PMOC.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de informações sobre PMOC.";
 
 export default function PMOC() {
   return (
