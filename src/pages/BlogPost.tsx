@@ -73,7 +73,7 @@ export default function BlogPost() {
       </section>
 
       {/* Content */}
-      <section className="bg-white py-12 sm:py-16">
+      <section className="bg-white py-12 sm:py-16 text-gray-800" style={{ color: '#374151' }}>
         <div className="max-w-4xl mx-auto px-5 sm:px-8">
           {/* Back link */}
           <FadeIn>
