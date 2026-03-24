@@ -1,9 +1,4 @@
 export type DayExplanation = {
-  date: string;
-  entries: any[];
-  workedMinutes: number;
-  expectedMinutes: number;
-  overtimeMinutes: number;
   [key: string]: any;
 };
 

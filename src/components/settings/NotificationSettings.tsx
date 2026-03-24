@@ -1,1 +1,1 @@
-export function NotificationSettings() { return <div>Notificações</div>; }
+export function NotificationSettings(props: any) { return <div>Notificações</div>; }

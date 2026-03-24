@@ -1,1 +1,1 @@
-export function ClientPortalSettings() { return <div>Portal do Cliente</div>; }
+export function ClientPortalSettings(props: any) { return <div>Portal do Cliente</div>; }

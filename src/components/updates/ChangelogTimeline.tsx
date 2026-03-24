@@ -7,7 +7,7 @@ export interface ChangelogEntry {
   description: string;
   type: ChangeType;
   version?: string;
-  changes?: string[];
+  changes?: Array<{ type: string; description: string } | string>;
   [key: string]: any;
 }
 

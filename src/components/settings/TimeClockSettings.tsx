@@ -1,1 +1,1 @@
-export function TimeClockSettings() { return <div>Ponto</div>; }
+export function TimeClockSettings(props: any) { return <div>Ponto</div>; }
