@@ -1,3 +1,1 @@
-export function DemoContextTip({ context }: { context?: string }) {
-  return null;
-}
+export function DemoContextTip(props: any) { return null; }

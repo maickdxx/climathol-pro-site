@@ -1,8 +1,8 @@
-export function PageTutorialBanner({ pageId }: { pageId?: string }) {
+export function PageTutorialBanner(props: any) {
   return null;
 }
 
-export function GuidedOnboardingCard() {
+export function GuidedOnboardingCard(props: any) {
   return null;
 }
 
