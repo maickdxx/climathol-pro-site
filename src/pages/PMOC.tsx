@@ -3,7 +3,7 @@ import { Footer } from "@/components/Footer";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { ShieldCheck, FileCheck, Building2, Stethoscope, GraduationCap, Store, AlertTriangle, ClipboardCheck, Search, Wrench, HeadphonesIcon, Clock, ChevronRight } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561993676477?text=Olá! Gostaria de informações sobre PMOC.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de informações sobre PMOC.";
 
 export default function PMOC() {
   return (
@@ -36,7 +36,7 @@ export default function PMOC() {
               Falar com Especialista
             </a>
             <a
-              href="tel:+5561993676477"
+              href="tel:+556193021232"
               className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 text-white font-semibold text-base hover:bg-white/20 transition-all duration-200"
             >
               (61) 99367-6477

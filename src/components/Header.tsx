@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import logoImg from "@/assets/logo-climathol.png";
 
-const WHATSAPP_URL = "https://wa.me/5561993676477?text=Olá! Gostaria de solicitar um orçamento.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de solicitar um orçamento.";
 
 const navItems = [
   { label: "INÍCIO", path: "/" },

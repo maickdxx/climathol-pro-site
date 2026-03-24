@@ -4,7 +4,7 @@ import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import whyImg from "@/assets/work-2.jpg";
 import { ShieldCheck, Users, Award, Target, Clock, Wrench } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561993676477?text=Olá! Gostaria de saber mais sobre a Climathol.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de saber mais sobre a Climathol.";
 
 export default function Sobre() {
   return (
