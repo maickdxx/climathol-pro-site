@@ -48,7 +48,7 @@ export default function PMOC() {
                 Falar com Especialista
               </motion.a>
               <a
-                href="tel:+5561994175078"
+                href="tel:+556193021232"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl glass text-white font-semibold text-sm hover:bg-white/[0.08] transition-all duration-200"
               >
                 (61) 99417-5078

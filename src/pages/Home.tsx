@@ -381,7 +381,7 @@ export default function Home() {
                 Chamar no WhatsApp
               </motion.a>
               <a
-                href="tel:+5561994175078"
+                href="tel:+556193021232"
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl glass text-white font-bold text-base hover:bg-white/[0.08] transition-all duration-200"
               >
                 <Phone size={18} />

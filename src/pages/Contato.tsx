@@ -5,10 +5,10 @@ import { FadeIn } from "@/components/Animations";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561994175078?text=Olá! Gostaria de entrar em contato.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de entrar em contato.";
 
 const contactInfo = [
-  { icon: Phone, title: "Telefone / WhatsApp", value: "(61) 99417-5078", href: "tel:+5561994175078" },
+  { icon: Phone, title: "Telefone / WhatsApp", value: "(61) 9302-1232", href: "tel:+556193021232" },
   { icon: Mail, title: "E-mail", value: "contato@climathol.com.br", href: "mailto:contato@climathol.com.br" },
   { icon: MapPin, title: "Localização", value: "Brasília - DF e todo o Distrito Federal" },
   { icon: Clock, title: "Horário", value: "Segunda a Sábado, 8h às 18h" },
