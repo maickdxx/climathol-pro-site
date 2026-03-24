@@ -1,1 +1,1 @@
-export function TransactionCategoriesSettings() { return <div>Categorias</div>; }
+export function TransactionCategoriesSettings(props: any) { return <div>Categorias</div>; }

@@ -3,6 +3,7 @@ import { ReactNode } from "react";
 interface AppLayoutProps {
   children: ReactNode;
   title?: string;
+  [key: string]: any;
 }
 
 export function AppLayout({ children, title }: AppLayoutProps) {

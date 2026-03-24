@@ -1,1 +1,1 @@
-export function SecuritySettings() { return <div>Segurança</div>; }
+export function SecuritySettings(props: any) { return <div>Segurança</div>; }

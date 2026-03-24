@@ -1,1 +1,1 @@
-export function SignatureSettings() { return <div>Assinatura</div>; }
+export function SignatureSettings(props: any) { return <div>Assinatura</div>; }

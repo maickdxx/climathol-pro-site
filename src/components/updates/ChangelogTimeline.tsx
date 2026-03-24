@@ -6,6 +6,9 @@ export interface ChangelogEntry {
   title: string;
   description: string;
   type: ChangeType;
+  version?: string;
+  changes?: string[];
+  [key: string]: any;
 }
 
 export function ChangelogTimeline(props: any) { return <div>Timeline</div>; }

@@ -1,1 +1,1 @@
-export function TeamSettings() { return <div>Equipe</div>; }
+export function TeamSettings(props: any) { return <div>Equipe</div>; }

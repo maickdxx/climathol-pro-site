@@ -1,1 +1,1 @@
-export function FinancialAccountsSettings() { return <div>Contas Financeiras</div>; }
+export function FinancialAccountsSettings(props: any) { return <div>Contas Financeiras</div>; }

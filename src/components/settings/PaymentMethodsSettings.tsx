@@ -1,1 +1,1 @@
-export function PaymentMethodsSettings() { return <div>Formas de Pagamento</div>; }
+export function PaymentMethodsSettings(props: any) { return <div>Formas de Pagamento</div>; }
