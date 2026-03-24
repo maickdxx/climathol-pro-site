@@ -6,7 +6,7 @@ import whyImg from "@/assets/work-2.jpg";
 import { motion } from "framer-motion";
 import { ShieldCheck, Users, Award, Target, Clock, Wrench } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561994175078?text=Olá! Gostaria de saber mais sobre a Climathol.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de saber mais sobre a Climathol.";
 
 const valores = [
   { icon: Target, title: "Missão", desc: "Entregar soluções em climatização com qualidade e responsabilidade técnica." },

@@ -5,7 +5,7 @@ import { FadeIn, StaggerContainer, StaggerItem } from "@/components/Animations";
 import { motion } from "framer-motion";
 import { ShieldCheck, FileCheck, Building2, Stethoscope, GraduationCap, Store, AlertTriangle, ClipboardCheck, Search, Wrench, HeadphonesIcon, Clock } from "lucide-react";
 
-const WHATSAPP_URL = "https://wa.me/5561994175078?text=Olá! Gostaria de informações sobre PMOC.";
+const WHATSAPP_URL = "https://wa.me/556193021232?text=Olá! Gostaria de informações sobre PMOC.";
 
 export default function PMOC() {
   return (
@@ -48,7 +48,7 @@ export default function PMOC() {
                 Falar com Especialista
               </motion.a>
               <a
-                href="tel:+5561994175078"
+                href="tel:+556193021232"
                 className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl glass text-white font-semibold text-sm hover:bg-white/[0.08] transition-all duration-200"
               >
                 (61) 99417-5078
